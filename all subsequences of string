@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(int start,string s,string &ans){
+    if(start==s.size()){
+        cout<<ans<<endl;
+        return ;
+    }
+    solve(start+1,s,ans);    // not choose
+    ans.push_back(s[start]);
+    solve(start+1,s,ans);    // choose
+    ans.pop_back();          //backtrack
+}
+int main(){
+    string s="singh";
+    string ans;
+    solve(0,s,ans);
+    
+    return 0;
+}
