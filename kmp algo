@@ -1,0 +1,23 @@
+int lps(string s) {
+	    // Your code goes here
+	    int n=s.size();
+	    vector<int>pi(n,0);
+	    pi[0]=0;
+	    int  j=0;int i=1;
+	    while(i<n){
+	        if(s[i]==s[j]){
+	            pi[i]=j+1;
+	            i++;
+	            j++;
+	        }
+	        else{
+	            if(j==0){pi[i]=0;
+	            i++;}
+	            else {
+	                j=pi[j-1];
+	            }
+	        }
+	    }
+	    int ans=pi[n-1];
+	    return ans;
+	}
