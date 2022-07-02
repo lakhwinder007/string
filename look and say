@@ -1,0 +1,27 @@
+  string solve(int n){
+      string ans;
+      if(n==1)return "1";
+      if(n==2)return "11";
+      string prev=solve(n-1);
+    
+      for(int i=0;i<prev.size();i++){
+          int j=i;
+            int count=1;
+          while(i+1<prev.size()&&prev[i]==prev[i+1]){
+              i++;
+              count++;
+              
+          }
+         // cout<<" count = "<<count<<" prev= "<<prev[j]<<endl;
+          ans.append(to_string(count));
+          ans.push_back(prev[j]);
+
+  }
+      
+  return ans;
+      
+  }
+    string lookandsay(int n) {
+        // code here
+        return solve(n);
+    } 
