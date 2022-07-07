@@ -1,0 +1,23 @@
+ string longestCommonPrefix (string arr[], int n)
+    {
+        // your code here
+        int len=0;
+        int flag=0;
+        while(1){
+        for(int i=0;i<n;i++){
+            char comp=arr[0][len];
+            if(len>arr[i].size()){flag=1;
+            break;}
+           if(arr[i][len]!=comp){flag=1;
+           break;}
+        }
+        if(flag==1)break;
+        else len++;
+        }
+        string ans;
+        for(int i=0;i<len;i++){
+            ans.push_back(arr[0][i]);
+        }
+        if(ans.size()==0)ans.append(to_string(-1));
+        return ans;
+    }
