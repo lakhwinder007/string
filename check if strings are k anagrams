@@ -1,0 +1,24 @@
+ bool areKAnagrams(string str1, string str2, int k) {
+        // code here
+        unordered_map<char,int>a,b;
+        for(int i=0;i<str1.size();i++){
+            a[str1[i]]++;
+        }
+        for(int i=0;i<str2.size();i++){
+            b[str2[i]]++;
+        }
+        //cart    darr
+        int diff=0;
+        if(str1.size()!=str2.size())return false;
+        for(int i=0;i<str1.size();i++){
+            
+          //cout<<str1[i]<<" ->"<<a[str1[i]]<<" , "<<b[str1[i]];
+           if(a[str1[i]]>b[str1[i]])  diff=diff+abs(a[str1[i]]-b[str1[i]] );
+             //cout<<" "<<diff<<endl;
+             a[str1[i]]=b[str1[i]]=0;       //so that it again do not add in diff
+        
+        }
+         //cout<<diff<<endl;
+        if(diff<=k)return true;
+        else return false;
+    }
