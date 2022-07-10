@@ -1,0 +1,14 @@
+ int atoi(string str) {
+        //Your code here
+        int ans=0;
+        int i;
+        if(str[0]=='-')i=1;
+        else i=0;
+        for( ;i<str.size();i++){
+           // cout<<(int)str[i]-(int)'0'<<" ";
+           if((int)str[i]-(int)'0'>9||(int)str[i]-(int)'0'<0)return -1;
+            ans=ans*10+(int)str[i]-(int)'0';
+        }
+        if(str[0]=='-')return -ans;
+        else  return ans;
+    }
