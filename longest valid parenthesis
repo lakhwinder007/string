@@ -1,0 +1,64 @@
+  int findMaxLen(string s) {
+        // 2 stack method  char stack , index stack
+        // stack<char>ch;
+        // stack<int>ind;
+        // ind.push(-1);
+        // int ans=0;
+        // for(int i=0;i<s.size();i++){
+        //     if(s[i]=='('){
+        //         ch.push('(');
+        //         ind.push(i);
+                
+        //     }
+        //     else{
+        //         if(ch.size()>0&&ch.top()=='('){
+        //             ch.pop();
+        //             ind.pop();
+        //             ans=max(ans,i-ind.top());
+        //                 }
+        //         else if(ch.size()==0)ind.push(i);
+               
+        //     }
+        // }
+        // return ans;
+        
+        
+        // 2nd method             using 1 stack index stack
+        
+        // stack<int>ind;
+        // int ans=0;
+        // ind.push(-1);
+        // for(int i=0;i<s.size();i++){
+        //     if(s[i]=='(')ind.push(i);
+        //     else{
+        //         ind.pop();
+        //         if(ind.size()==0)ind.push(i);
+        //         else ans=max(ans, i-ind.top());
+        //     }
+        // }
+        // return ans;
+        
+        
+        // 3rd method                    variable open and close   
+        int open=0,close=0;
+        int ans=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='(')open++;
+            else close++;
+            if(close==open)ans=max(ans,open +close);
+            if(close>open){
+                close=0,open=0;
+            }
+        }
+        
+          open=0,close=0;
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i]=='(')open++;
+            else close++;
+            if(close==open)ans=max(ans,open +close);
+            if(close<open){
+                close=0,open=0;
+            }
+        }
+        return ans;
+    }
